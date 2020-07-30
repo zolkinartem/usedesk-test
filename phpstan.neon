@@ -5,3 +5,4 @@ parameters:
     checkMissingIterableValueType: false
     ignoreErrors:
          - '#Property [a-zA-Z0-9\\_]+::\$[a-zA-Z0-9]+ has no typehint specified.#'
+         - '#Call to an undefined method Illuminate\\Contracts\\Auth\\Authenticatable::logs().#'
