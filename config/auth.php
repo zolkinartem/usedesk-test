@@ -43,7 +43,7 @@ return [
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'api-users',
             'hash' => false,
         ],
     ],
@@ -66,9 +66,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'api-users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User\ApiUser::class,
         ],
 
         // 'users' => [

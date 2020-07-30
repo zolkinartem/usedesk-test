@@ -41,6 +41,6 @@ class CreateClientPhoneNumberTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('client_phone');
+        Schema::dropIfExists('client_phone_number');
     }
 }

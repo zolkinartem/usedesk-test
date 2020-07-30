@@ -9,6 +9,6 @@ use Illuminate\Database\Eloquent\Factory;
 $factory->define(ApiUser::class, static function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'token' => $faker->md5,
+        'api_token' => $faker->md5,
     ];
 });

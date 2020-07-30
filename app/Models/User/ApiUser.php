@@ -3,25 +3,25 @@
 namespace App\Models\User;
 
 use App\Collections\Users\ApiUsersCollection;
-use App\Models\BaseModel;
 use App\Models\Logs\Log;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * Class ApiUser
  *
  * @package App\Models\User
  */
-class ApiUser extends BaseModel
+class ApiUser extends Authenticatable
 {
     protected $fillable = [
         'name',
-        'token',
+        'api_token',
     ];
 
     protected $casts = [
         'name' => 'string',
-        'token' => 'string',
+        'api_token' => 'string',
     ];
 
     /**

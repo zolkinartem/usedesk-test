@@ -19,7 +19,7 @@ class CreateApiUsersTable extends Migration
         Schema::create('api_users', static function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('token', 32);
+            $table->string('api_token', 32);
             $table->timestamps();
         });
     }

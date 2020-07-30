@@ -15,15 +15,15 @@ class ApiUsersTableSeeder extends Seeder
     protected array $resource = [
         [
             'name' => 'User 1',
-            'token' => '736B7AA4CE6AE8E805590FE1A0E0FDA4',
+            'api_token' => '736B7AA4CE6AE8E805590FE1A0E0FDA4',
         ],
         [
             'name' => 'User 2',
-            'token' => 'AA10385241AF3EDBCBFCD33D4C5C0687',
+            'api_token' => 'AA10385241AF3EDBCBFCD33D4C5C0687',
         ],
         [
             'name' => 'User 3',
-            'token' => '20625E55E07BAF8E7B9DE1242BD5A2E3',
+            'api_token' => '20625E55E07BAF8E7B9DE1242BD5A2E3',
         ],
     ];
 
