@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Class CreateClientPhoneTable
+ * Class CreateClientPhoneNumberTable
  */
-class CreateClientPhoneTable extends Migration
+class CreateClientPhoneNumberTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,10 +16,10 @@ class CreateClientPhoneTable extends Migration
      */
     public function up(): void
     {
-        Schema::create('client_phone', static function (Blueprint $table) {
+        Schema::create('client_phone_number', static function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('client_id')->index();
-            $table->unsignedBigInteger('phone_id')->index();
+            $table->unsignedBigInteger('phone_number_id')->index();
             $table->timestamps();
 
             $table->foreign('client_id')
@@ -27,9 +27,9 @@ class CreateClientPhoneTable extends Migration
                 ->on('clients')
                 ->onDelete('cascade');
 
-            $table->foreign('phone_id')
+            $table->foreign('phone_number_id')
                 ->references('id')
-                ->on('phones')
+                ->on('phone_numbers')
                 ->onDelete('cascade');
         });
     }

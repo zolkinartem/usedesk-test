@@ -18,7 +18,7 @@ class CreatePhoneNumbersTable extends Migration
     {
         Schema::create('phone_numbers', static function (Blueprint $table) {
             $table->id();
-            $table->string('number', 32);
+            $table->string('number', 32)->unique();
             $table->timestamps();
         });
     }

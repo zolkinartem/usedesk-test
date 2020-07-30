@@ -18,7 +18,7 @@ class CreateEmailsTable extends Migration
     {
         Schema::create('emails', static function (Blueprint $table) {
             $table->id();
-            $table->string('email', 128);
+            $table->string('email', 128)->unique();
             $table->timestamps();
         });
     }
