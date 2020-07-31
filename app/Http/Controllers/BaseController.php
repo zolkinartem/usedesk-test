@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contracts\Logs\LogsServiceContract;
 use App\DataObjects\Logs\LogsDataObject;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -15,25 +16,11 @@ use Symfony\Component\HttpFoundation\Response;
 class BaseController extends Controller
 {
     /**
-     * @var LogsServiceContract
-     */
-    protected LogsServiceContract $service;
-
-    /**
-     * BaseController constructor.
-     *
-     * @param  LogsServiceContract  $service
-     */
-    public function __construct(LogsServiceContract $service)
-    {
-        $this->service = $service;
-    }
-
-    /**
      * @param  string  $method
      * @param  array   $parameters
      *
      * @return mixed
+     * @throws BindingResolutionException
      */
     public function callAction($method, $parameters)
     {
@@ -44,7 +31,8 @@ class BaseController extends Controller
                 ->setAction($method)
                 ->setParameters($parameters);
 
-            $this->service->save($dataObject);
+            $logService = app()->make(LogsServiceContract::class);
+            $logService->save($dataObject);
 
             return parent::callAction($method, $parameters);
         }

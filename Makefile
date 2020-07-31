@@ -86,6 +86,8 @@ phpcbf: ## Run Code Sniffer
 phpstan: ## Running phpstan
 	@docker-compose exec -T app sudo -u www-data ./vendor/bin/phpstan analyze app tests -l max -c phpstan.neon
 
+pre-commit: phpcbf phpstan test ## Pre-commit code test
+
 help: ## This help
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
