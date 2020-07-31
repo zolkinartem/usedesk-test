@@ -29,7 +29,7 @@ class BaseController extends Controller
             $dataObject = (new LogsDataObject())
                 ->setUser($user)
                 ->setAction($method)
-                ->setParameters($parameters);
+                ->setParameters(request()->all());
 
             $logService = app()->make(LogsServiceContract::class);
             $logService->save($dataObject);
